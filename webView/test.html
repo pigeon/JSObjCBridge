@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    
+    <h1>My First JavaScript</h1>
+    
+    <p>Click Date to display current day, date, and time.</p>
+    <script>
+        function myFunction(event)
+        {
+            document.location = "libtest://" + "methodName?{\"api\":{\"methodName\":\"performTestMethod1WithParameter\",\"parameters\":{\"param1\":{\"name\":\"param1\",\"value\":\"test\"},\"param2\":{\"name\":\"parameter2\",\"value\":\"test1\"},\"param3\":{\"name\":\"withCompletion\",\"value\":\"\"}}}}";
+        }
+    </script>
+    <body>
+        <button onclick="myFunction()">Run The Test</button>
+    </body>
+</html>
