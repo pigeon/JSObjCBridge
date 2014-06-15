@@ -30,10 +30,11 @@
 		EE0638521943A4800053695C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0638061943A0BB0053695C /* Foundation.framework */; };
 		EE0638531943A4800053695C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0638171943A0BB0053695C /* UIKit.framework */; };
 		EE06385B1943A4800053695C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE0638591943A4800053695C /* InfoPlist.strings */; };
-		EE06385D1943A4800053695C /* webViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06385C1943A4800053695C /* webViewTests.m */; };
 		EE0638651944EE0C0053695C /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = EE0638641944EE0C0053695C /* test.html */; };
 		EE1501B419450E320052F70D /* libAPILibrary.a in Sources */ = {isa = PBXBuildFile; fileRef = EE0638031943A0BB0053695C /* libAPILibrary.a */; };
 		EE1501B519450EE90052F70D /* libAPILibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0638031943A0BB0053695C /* libAPILibrary.a */; };
+		EEB0F15E194D9F520010AAED /* JS2ObjCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB0F15D194D9F520010AAED /* JS2ObjCHelper.m */; };
+		EEB0F160194DA7ED0010AAED /* JS2ObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB0F15F194DA7ED0010AAED /* JS2ObjCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +102,10 @@
 		EE0638501943A4800053695C /* webViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = webViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0638581943A4800053695C /* webViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "webViewTests-Info.plist"; sourceTree = "<group>"; };
 		EE06385A1943A4800053695C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EE06385C1943A4800053695C /* webViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = webViewTests.m; sourceTree = "<group>"; };
 		EE0638641944EE0C0053695C /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		EEB0F15C194D9F520010AAED /* JS2ObjCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JS2ObjCHelper.h; sourceTree = "<group>"; };
+		EEB0F15D194D9F520010AAED /* JS2ObjCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JS2ObjCHelper.m; sourceTree = "<group>"; };
+		EEB0F15F194DA7ED0010AAED /* JS2ObjCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JS2ObjCTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,7 @@
 		EE0638351943A4800053695C /* webView */ = {
 			isa = PBXGroup;
 			children = (
+				EEB0F15B194D9EE40010AAED /* JSObjCProtocol */,
 				EE0638641944EE0C0053695C /* test.html */,
 				EE06383E1943A4800053695C /* AppDelegate.h */,
 				EE06383F1943A4800053695C /* AppDelegate.m */,
@@ -249,8 +253,8 @@
 		EE0638561943A4800053695C /* webViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				EE06385C1943A4800053695C /* webViewTests.m */,
 				EE0638571943A4800053695C /* Supporting Files */,
+				EEB0F15F194DA7ED0010AAED /* JS2ObjCTests.m */,
 			);
 			path = webViewTests;
 			sourceTree = "<group>";
@@ -262,6 +266,15 @@
 				EE0638591943A4800053695C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEB0F15B194D9EE40010AAED /* JSObjCProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				EEB0F15C194D9F520010AAED /* JS2ObjCHelper.h */,
+				EEB0F15D194D9F520010AAED /* JS2ObjCHelper.m */,
+			);
+			name = JSObjCProtocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1501B419450E320052F70D /* libAPILibrary.a in Sources */,
+				EEB0F15E194D9F520010AAED /* JS2ObjCHelper.m in Sources */,
 				EE0638491943A4800053695C /* ViewController.m in Sources */,
 				EE0638401943A4800053695C /* AppDelegate.m in Sources */,
 				EE06383C1943A4800053695C /* main.m in Sources */,
@@ -439,7 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE06385D1943A4800053695C /* webViewTests.m in Sources */,
+				EEB0F160194DA7ED0010AAED /* JS2ObjCTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

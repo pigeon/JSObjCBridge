@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "APILibrary.h"
+#import "JS2ObjCHelper.h"
 
 @interface ViewController () <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
@@ -31,42 +32,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(SEL) selectorWithObject:(NSDictionary*) dictionary
-{
-    NSMutableString* methodSignature = [[NSMutableString alloc] initWithString:dictionary[@"methodName"]];
-    [methodSignature appendString:@":"];
-    
-    NSDictionary* parameters = dictionary[@"parameters"];
-    for (int i=1; i<parameters.count; ++i) {
-        NSDictionary* paramInfo = parameters[[NSString stringWithFormat:@"param%i",i+1]];
-        NSString* methodName = paramInfo[@"name"];
-        [methodSignature appendString:methodName];
-        [methodSignature appendString:@":"];
-    }
-    SEL signature = NSSelectorFromString(methodSignature);
-    return signature;
-}
-
--(NSInvocation*) buildInvocationWithSelector:(SEL) selector target:(id) target parameters:(NSDictionary*) parameters
-{
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[target methodSignatureForSelector:selector]];
-    [invocation setSelector:selector];
-    [invocation setTarget:target];
-    
-    for (int i=1; i<parameters.count; ++i) {
-        NSDictionary* paramValue = parameters[[NSString stringWithFormat:@"param%i",i]];
-        id value = paramValue[@"value"];
-        [invocation setArgument:&(value) atIndex:i+1];
-    }
-    return invocation;
-}
 
 - (void) callLibraryMethodWithObject:(NSDictionary*) parameters
 {
     APILibrary* library = [[APILibrary alloc] init];
-    SEL signature = [self selectorWithObject:parameters[@"api"]];
+    SEL signature = [JS2ObjCHelper selectorWithObject:parameters[@"api"]];
     if ([library respondsToSelector:signature]) {
-        NSInvocation* invocation = [self buildInvocationWithSelector:signature
+        NSInvocation* invocation = [JS2ObjCHelper buildInvocationWithSelector:signature
                                                               target:library
                                                           parameters:[parameters[@"api"] objectForKey:@"parameters"]];
         [invocation invoke];
